@@ -11,6 +11,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
+  <!-- PUE Data (loads globally as window.PUE_DATA for GitHub Pages compatibility) -->
+  <script src="./data.js"></script>
+
   <style>
     /* =========================================================
        DESIGN SYSTEM — CSS VARIABLES
@@ -1511,11 +1514,19 @@ document.getElementById('village-analytics').style.display = 'block';
 const DataLoader = (() => {
   async function load() {
     try {
+      // GitHub Pages compatible: First check if data.js loaded window.PUE_DATA
+      if (typeof window.PUE_DATA !== 'undefined' && Array.isArray(window.PUE_DATA)) {
+        console.log('Loading data from window.PUE_DATA (data.js)');
+        return window.PUE_DATA;
+      }
+      
+      // Fallback: fetch data.json (for local development)
+      console.log('Loading data from data.json (fallback)');
       const res  = await fetch('./data.json');
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       return await res.json();
     } catch (err) {
-      console.error('Failed to load data.json:', err);
+      console.error('Failed to load data:', err);
       // Return empty so the app still renders
       return [];
     }
