@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PUE Roadshow Dashboard — Zambia</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <!-- Google Fonts: Syne (display) + DM Mono (data) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =========================================================
+       DESIGN SYSTEM — CSS VARIABLES
+       ========================================================= */
+    :root {
+  --bg-main: #081018;
+  --bg-panel: rgba(11, 20, 32, 0.92);
+  --bg-card: rgba(255,255,255,0.04);
+  --bg-card-hover: rgba(255,255,255,0.07);
+
+  --text-primary: #f3f6fb;
+  --text-secondary: #b4c0d0;
+  --text-muted: #6f8096;
+
+  --accent-energy: #00e5ff;
+  --accent-gold: #ffd54a;
+  --accent-green: #3ddc97;
+
+  --border: rgba(255,255,255,0.08);
+  --border-accent: rgba(0,229,255,0.35);
+
+  --cat-agriculture: #6ee7b7;
+  --cat-food: #f59e0b;
+  --cat-manufacturing: #60a5fa;
+  --cat-community: #c084fc;
+  --cat-services: #f472b6;
+  --cat-micro: #14b8a6;
+  --cat-refrigeration: #0ea5e9;
+
+  --cluster-fill: rgba(0,229,255,0.08);
+  --cluster-stroke: rgba(0,229,255,0.55);
+
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+
+  --panel-w: 360px;
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+    /* =========================================================
+       RESET & BASE
+       ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%; height: 100%;
+      font-family: 'DM Mono', monospace;
+      background: var(--bg-void);
+      color: var(--text-primary);
+      overflow: hidden;
+    }
+
+    /* =========================================================
+       LAYOUT — Full-viewport map + floating UI
+       ========================================================= */
+    #map {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    /* =========================================================
+       TOP BAR — branding strip
+       ========================================================= */
+    #topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 56px;
+      background: linear-gradient(to bottom, rgba(244,246,249,0.97), rgba(244,246,249,0));
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 14px;
+      z-index: 900;
+      pointer-events: none;
+    }
+
+    #topbar .logo-mark {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: var(--accent-gold);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    #topbar .logo-mark svg { width: 18px; height: 18px; }
+
+    #topbar h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: var(--text-primary);
+      line-height: 1;
+    }
+
+    #topbar h1 span {
+      color: var(--accent-gold);
+    }
+
+    #topbar .subtitle {
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    #topbar .sep {
+      width: 1px; height: 24px;
+      background: var(--border);
+      margin: 0 4px;
+    }
+
+    /* =========================================================
+       BREADCRUMB — level indicator
+       ========================================================= */
+    #breadcrumb {
+      position: fixed;
+      top: 64px; left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 900;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 99px;
+      backdrop-filter: blur(12px);
+      transition: var(--transition);
+    }
+
+    #breadcrumb .crumb { color: var(--text-secondary); cursor: pointer; }
+    #breadcrumb .crumb:hover { color: var(--accent-gold); }
+    #breadcrumb .crumb.active { color: var(--accent-gold); cursor: default; }
+    #breadcrumb .arrow { opacity: 0.4; }
+#village-analytics {
+  position: fixed;
+  bottom: 140px;
+  left: 20px;
+  z-index: 999;
+
+  width: 260px;
+
+  background: rgba(11,20,32,0.92);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+
+  padding: 18px;
+
+  backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.4),
+    0 0 24px rgba(0,229,255,0.08);
+
+  display: none;
+}
+
+.va-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #00e5ff;
+  margin-bottom: 14px;
+}
+
+.va-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #dce7f5;
+  font-size: 12px;
+}
+
+.va-row strong {
+  color: #ffd54a;
+}
+    /* =========================================================
+       RESET BUTTON
+       ========================================================= */
+    #btn-reset {
+      position: fixed;
+      top: 64px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 900;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: var(--accent-gold);
+      color: var(--bg-void);
+      border: none;
+      border-radius: 99px;
+      font-family: 'Syne', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255,216,74,0.4);
+      transition: var(--transition);
+    }
+
+    #btn-reset:hover {
+      background: #ffe47a;
+      box-shadow: 0 6px 28px rgba(255,216,74,0.6);
+      transform: translateX(-50%) translateY(-1px);
+    }
+
+    #btn-reset svg { width: 14px; height: 14px; }
+
+    /* =========================================================
+       SUMMARY PANEL — right side
+       ========================================================= */
+    #panel {
+      position: fixed;
+      top: 0;
+      right: -360px;          /* hidden by default */
+      width: var(--panel-w);
+      height: 100%;
+      background: var(--bg-panel);
+      backdrop-filter: blur(24px);
+      border-left: 1px solid var(--border);
+      box-shadow:-10px 0 40px rgba(0,0,0,0.4), 0 0 40px rgba(0,229,255,0.05);
+      z-index: 800;
+      display: flex;
+      flex-direction: column;
+      padding: 70px 0 20px;
+      transition: right 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+    }
+
+    #panel.open { right: 0; }
+
+    /* Panel close button */
+    #panel-close {
+      position: absolute;
+      top: 68px; left: -14px;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      transition: var(--transition);
+      z-index: 801;
+    }
+
+    #panel-close:hover {
+      background: var(--accent-gold);
+      color: var(--bg-void);
+      border-color: var(--accent-gold);
+    }
+
+    /* Panel scrollable content */
+    #panel-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0 20px;
+    }
+
+    #panel-scroll::-webkit-scrollbar { width: 4px; }
+    #panel-scroll::-webkit-scrollbar-track { background: transparent; }
+    #panel-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+    /* Panel cluster header */
+    #panel-header {
+      padding: 0 20px 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    #panel-cluster-tag {
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 6px;
+    }
+
+    #panel-cluster-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    /* Stat cards grid */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px 12px;
+      transition: var(--transition);
+    }
+
+    .stat-card:hover { background: var(--bg-card-hover); }
+
+    .stat-value {
+      font-family: 'Syne', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--accent-gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* Section headings inside panel */
+    .panel-section-title {
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .panel-section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* Village list items */
+    .village-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .village-item:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-accent);
+      transform: translateX(3px);
+    }
+
+    .village-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      flex-shrink: 0;
+    }
+
+    .village-name {
+      flex: 1;
+      font-size: 12px;
+      color: var(--text-primary);
+    }
+
+    .village-counts {
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    .village-counts span { color: var(--text-secondary); }
+
+    /* Legend section */
+    .legend-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 10px;
+      color: var(--text-secondary);
+    }
+
+    .legend-swatch {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* =========================================================
+       CLUSTER BUBBLE MARKERS — custom CSS markers
+       ========================================================= */
+    .cluster-bubble {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      pointer-events: auto;
+    }
+
+    .cluster-bubble:hover {
+      transform: scale(1.12);
+    }
+
+    .cluster-bubble-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .cluster-bubble-inner .cb-count {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--accent-gold);
+    }
+
+    .cluster-bubble-inner .cb-label {
+      font-size: 8px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,216,74,0.65);
+      margin-top: 2px;
+    }
+
+    /* =========================================================
+       LEAFLET POPUP CUSTOM STYLE
+       ========================================================= */
+    .leaflet-popup-content-wrapper {
+      background: var(--bg-panel) !important;
+      border: 1px solid var(--border-accent) !important;
+      border-radius: var(--radius-md) !important;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.6) !important;
+      backdrop-filter: blur(20px) !important;
+      padding: 0 !important;
+      color: var(--text-primary) !important;
+      font-family: 'DM Mono', monospace !important;
+      min-width: 220px;
+    }
+
+    .leaflet-popup-content {
+      margin: 0 !important;
+      width: auto !important;
+    }
+
+    .leaflet-popup-tip-container { display: none; }
+
+    .leaflet-popup-close-button {
+      color: var(--text-muted) !important;
+      font-size: 18px !important;
+      top: 10px !important;
+      right: 10px !important;
+    }
+
+    .leaflet-popup-close-button:hover { color: var(--accent-gold) !important; }
+
+    /* Custom popup card */
+    .popup-card {
+      padding: 16px 18px;
+    }
+
+    .popup-type-tag {
+      font-size: 8px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 99px;
+      display: inline-block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .popup-type-tag.existing {
+      background: rgba(74,222,128,0.15);
+      color: #4ade80;
+      border: 1px solid rgba(74,222,128,0.3);
+    }
+
+    .popup-type-tag.lead {
+      background: rgba(251,146,60,0.15);
+      color: #fb923c;
+      border: 1px solid rgba(251,146,60,0.3);
+    }
+
+    .popup-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .popup-meta {
+      display: grid;
+      gap: 5px;
+    }
+
+    .popup-row {
+      display: flex;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .popup-key {
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      width: 72px;
+      flex-shrink: 0;
+    }
+
+    .popup-val {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    .popup-load {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 10px;
+      padding: 5px 10px;
+      background: var(--accent-glow);
+      border: 1px solid var(--border-accent);
+      border-radius: 99px;
+    }
+
+    .popup-load .load-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+
+    .popup-load .load-unit {
+      font-size: 9px;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    /* =========================================================
+       MAP TILE — bright, natural colours
+       ========================================================= */
+    .leaflet-tile {
+      filter: saturate(1.1) brightness(1.05) !important;
+    }
+
+    /* =========================================================
+       LOADING OVERLAY
+       ========================================================= */
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: var(--bg-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+
+    #loader.hidden { opacity: 0; pointer-events: none; }
+
+    .loader-ring {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent-gold);
+      animation: spin 0.9s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .loader-text {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* =========================================================
+       STATS BAR — bottom
+       ========================================================= */
+    #stats-bar {
+      position: fixed;
+      bottom: 0; left: 0;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      z-index: 900;
+      background: var(--bg-panel);
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-radius: 0 var(--radius-md) 0 0;
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+    }
+
+    .stats-bar-item {
+      padding: 10px 18px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .stats-bar-item:last-child { border-right: none; }
+
+    .stats-bar-val {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--accent-gold);
+    }
+
+    .stats-bar-label {
+      font-size: 8px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* =========================================================
+       VILLAGE ZOOM INDICATOR
+       ========================================================= */
+    #village-indicator {
+      position: fixed;
+      bottom: 56px; left: 20px;
+      background: var(--bg-panel);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      z-index: 900;
+      display: none;
+      max-width: 220px;
+      backdrop-filter: blur(16px);
+    }
+
+    #village-indicator .vi-tag {
+      font-size: 8px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 4px;
+    }
+
+    #village-indicator .vi-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    #village-indicator .vi-counts {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .glass-glow {
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.45),
+    0 0 24px rgba(0,229,255,0.08);
+}
+
+.lead-pulse {
+  animation: pulse 2.2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.12);
+    opacity: 0.72;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.lead-ring-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lead-ring,
+.lead-pulse-ring {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.lead-ring {
+  backdrop-filter: blur(4px);
+}
+
+.lead-pulse-ring {
+  border: 2px solid;
+  animation: pulseRing 2.4s infinite;
+}
+
+@keyframes pulseRing {
+
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+
+  70% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+
+    
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     LOADING OVERLAY
+     ============================================================ -->
+<div id="loader">
+  <div class="loader-ring"></div>
+  <p class="loader-text">Loading PUE Dashboard</p>
+</div>
+
+<!-- ============================================================
+     MAP CONTAINER
+     ============================================================ -->
+<div id="map"></div>
+
+<!-- ============================================================
+     TOP BAR
+     ============================================================ -->
+<div id="topbar">
+  <div class="logo-mark">
+    <!-- Bolt/energy icon -->
+    <svg viewBox="0 0 24 24" fill="none" stroke="#090e16" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+    </svg>
+  </div>
+  <div>
+    <h1>PUE <span>Zambia</span></h1>
+    <div class="subtitle">Productive Use of Energy · Roadshow Dashboard</div>
+  </div>
+  <div class="sep"></div>
+  <div style="font-size:10px;color:var(--text-muted);letter-spacing:0.08em;">
+    Click a cluster to explore
+  </div>
+</div>
+
+<!-- ============================================================
+     BREADCRUMB
+     ============================================================ -->
+<div id="breadcrumb">
+  <span class="crumb active" id="bc-national" onclick="AppState.resetToNational()">National</span>
+</div>
+
+<!-- ============================================================
+     RESET BUTTON
+     ============================================================ -->
+<button id="btn-reset" onclick="AppState.resetToNational()">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+    <path d="M3 3v5h5"/>
+  </svg>
+  Reset Map
+</button>
+
+<!-- ============================================================
+     SUMMARY PANEL (right side)
+     ============================================================ -->
+<div id="panel">
+  <button id="panel-close" onclick="AppState.closePanel()">✕</button>
+
+  <div id="panel-header">
+    <div id="panel-cluster-tag">Active Cluster</div>
+    <div id="panel-cluster-name">—</div>
+  </div>
+
+  <div id="panel-scroll">
+    <!-- Stat cards -->
+    <div class="stat-grid" id="panel-stats">
+      <div class="stat-card">
+        <div class="stat-value" id="stat-existing">—</div>
+        <div class="stat-label">Existing PUEs</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-leads">—</div>
+        <div class="stat-label">Generated Leads</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-category">—</div>
+        <div class="stat-label">Dominant Sector</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-area">—</div>
+        <div class="stat-label">Coverage km²</div>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="panel-section-title">Icon Legend</div>
+    <div class="legend-grid">
+      <div class="legend-item"><div class="legend-swatch" style="background:var(--cat-agriculture)"></div> Agriculture</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:var(--cat-food)"></div> Food Processing</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:var(--cat-manufacturing)"></div> Manufacturing</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:var(--cat-community)"></div> Community</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:var(--cat-services)"></div> Services</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:var(--cat-micro)"></div> Micro Enterprises</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:var(--cat-refrigeration)"></div> Refrigeration</div>
+    </div>
+
+    <!-- Marker Types Legend -->
+    <div class="panel-section-title">Marker Types</div>
+    <div class="legend-grid">
+      <div class="legend-item">
+        <svg width="11" height="11" viewBox="0 0 11 11"><circle cx="5.5" cy="5.5" r="4.5" fill="rgba(255,255,255,0.3)" stroke="#fff" stroke-width="1"/></svg>
+        <span style="margin-left:2px">Existing PUE</span>
+      </div>
+      <div class="legend-item">
+        <svg width="12" height="12" viewBox="0 0 12 12"><polygon points="6,1 7.5,4.5 11,4.5 8.5,7 9.5,10.5 6,8.5 2.5,10.5 3.5,7 1,4.5 4.5,4.5" fill="rgba(255,255,255,0.3)" stroke="#fff" stroke-width="0.8"/></svg>
+        <span style="margin-left:2px">Lead</span>
+      </div>
+    </div>
+
+    <!-- Current Statistics -->
+    <div class="panel-section-title">Current Statistics</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;">
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 10px 12px;">
+        <div style="font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 800; color: var(--accent-gold); line-height: 1; margin-bottom: 4px;" id="legend-pue-count">0</div>
+        <div style="font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);">Existing PUEs</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 10px 12px;">
+        <div style="font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 800; color: var(--accent-gold); line-height: 1; margin-bottom: 4px;" id="legend-lead-count">0</div>
+        <div style="font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);">Generated Leads</div>
+      </div>
+    </div>
+
+    <!-- Village list -->
+    <div class="panel-section-title">Villages</div>
+    <div id="panel-villages"></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     BOTTOM STATS BAR
+     ============================================================ -->
+<div id="stats-bar">
+  <div class="stats-bar-item">
+    <div class="stats-bar-val" id="global-clusters">5</div>
+    <div class="stats-bar-label">Clusters</div>
+  </div>
+  <div class="stats-bar-item">
+    <div class="stats-bar-val" id="global-pues">—</div>
+    <div class="stats-bar-label">Total PUEs</div>
+  </div>
+  <div class="stats-bar-item">
+    <div class="stats-bar-val" id="global-leads">—</div>
+    <div class="stats-bar-label">Total Leads</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     VILLAGE INDICATOR
+     ============================================================ -->
+<div id="village-indicator">
+  <div class="vi-tag">Active Village</div>
+  <div class="vi-name" id="vi-name">—</div>
+  <div class="vi-counts" id="vi-counts">—</div>
+</div>
+
+<!-- Leaflet JS -->
+ <div id="village-analytics">
+  <div class="va-title">Village Analytics</div>
+  <div class="va-row">
+    <span>Total Estimated Load</span>
+    <strong id="va-load">0 kW</strong>
+  </div>
+  <div class="va-row">
+    <span>Generated Leads</span>
+    <strong id="va-leads">0</strong>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+<script>
+/* =================================================================
+   PUE DASHBOARD — VANILLA JS
+   =================================================================
+   Sections:
+     1. CONFIG            — constants & theming helpers
+     2. MAP INIT          — Leaflet setup
+     3. DATA LOADER       — fetch & parse data.json
+     4. RENDERER          — draw markers, polygons, popups
+     5. APP STATE         — level transitions & panel updates
+     6. UI HELPERS        — breadcrumb, stats bar
+     7. BOOTSTRAP         — entry point
+   ================================================================= */
+
+
+/* -----------------------------------------------------------------
+   1. CONFIG
+   ----------------------------------------------------------------- */
+const CONFIG = {
+  zambia: { center: [-13.5, 28.0], zoom: 6 },
+  clusterZoom: 9,
+  villageZoom: 13,
+
+  // Category → CSS variable color (resolved at runtime)
+  categoryColor: {
+    agriculture:    '#4ade80',
+    food_processing:'#fb923c',
+    manufacturing:  '#60a5fa',
+    community:      '#c084fc',
+    services:       '#f472b6',
+    micro_enterprise: '#14b8a6',
+    refrigeration:  '#0ea5e9',
+  },
+
+  // Category → readable label
+  categoryLabel: {
+    agriculture:     'Agriculture',
+    food_processing: 'Food Processing',
+    manufacturing:   'Manufacturing',
+    community:       'Community',
+    services:        'Services',
+    micro_enterprise: 'Micro Enterprises',
+    refrigeration:   'Refrigeration',
+  },
+};
+
+/** Get color for a category key. Falls back to white. */
+function catColor(key) {
+  return CONFIG.categoryColor[key] || '#ffffff';
+}
+
+/** Hex → rgba string with alpha */
+function hexAlpha(hex, a) {
+  const r = parseInt(hex.slice(1,3),16);
+  const g = parseInt(hex.slice(3,5),16);
+  const b = parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${a})`;
+}
+
+
+/* -----------------------------------------------------------------
+   2. MAP INIT
+   ----------------------------------------------------------------- */
+const MapEngine = (() => {
+  let _map = null;
+
+  function init() {
+    _map = L.map('map', {
+      center: CONFIG.zambia.center,
+      zoom:   CONFIG.zambia.zoom,
+      zoomControl: false,
+      attributionControl: false,
+    });
+
+    // Dark-tinted base tile (OSM, filtered via CSS)
+   L.tileLayer(
+  'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+  {
+    maxZoom: 20,
+    attribution: '&copy; OpenStreetMap &copy; CARTO'
+  }
+).addTo(_map);
+
+    // Custom zoom control (bottom-right)
+    L.control.zoom({ position: 'bottomright' }).addTo(_map);
+
+    // Attribution — minimal
+    L.control.attribution({ position: 'bottomright', prefix: '' })
+      .addAttribution('© OpenStreetMap')
+      .addTo(_map);
+
+    return _map;
+  }
+
+  function get() { return _map; }
+
+  /** Smooth flyTo wrapper */
+  function flyTo(latlng, zoom) {
+    _map.flyTo(latlng, zoom, { duration: 1.4, easeLinearity: 0.25 });
+  }
+
+  /** Reset to national view */
+  function resetView() {
+    _map.flyTo(CONFIG.zambia.center, CONFIG.zambia.zoom, { duration: 1.6 });
+  }
+
+  return { init, get, flyTo, resetView };
+})();
+
+
+/* -----------------------------------------------------------------
+   3. MARKER FACTORIES
+   ----------------------------------------------------------------- */
+
+/** Cluster pin marker — simple pin with name label */
+function makeClusterIcon(cluster) {
+  const html = `
+    <div style="
+      width: 24px; height: 32px;
+      background: linear-gradient(to bottom, #0ea5e9, #06b6d4);
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      border: 2px solid rgba(255,255,255,0.6);
+      box-shadow: 0 3px 12px rgba(14,165,233,0.5), inset 0 1px 2px rgba(255,255,255,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    >
+      <div style="transform: rotate(45deg); font-size: 10px; font-weight: 700; color: #fff;">📍</div>
+    </div>`;
+  return L.divIcon({ html, className: '', iconSize: [24, 32], iconAnchor: [12, 32] });
+}
+
+/** Village marker — gold diamond pin */
+function makeVillageIcon() {
+  const html = `
+    <div style="
+      width:14px; height:14px;
+      background: #ffd84a;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      border: 2px solid rgba(255,255,255,0.5);
+      box-shadow: 0 2px 8px rgba(255,216,74,0.6);
+    "></div>`;
+  return L.divIcon({ html, className:'', iconSize:[14,14], iconAnchor:[7,14] });
+}
+
+/**
+ * PUE marker — circle (existing) or star (lead)
+ * Color-coded by category
+ */
+
+function makePueIcon(type, category, load = 1) {
+
+  const color = catColor(category);
+
+  /*
+    =====================================================
+    GENERATED LEADS
+    Hollow animated pulse rings
+    =====================================================
+  */
+  if (type === 'lead') {
+
+    const size = Math.max(18, load * 5);
+
+    return L.divIcon({
+      className: '',
+      html: `
+        <div class="lead-ring-wrapper">
+
+          <!-- Pulse halo -->
+          <div
+            class="lead-pulse-ring"
+            style="
+              width:${size}px;
+              height:${size}px;
+              border-color:${hexAlpha(color,0.5)};
+            ">
+          </div>
+
+          <!-- Main hollow ring -->
+          <div
+            class="lead-ring"
+            style="
+              width:${size}px;
+              height:${size}px;
+              border:2.5px solid ${color};
+              box-shadow:
+                0 0 12px ${hexAlpha(color,0.8)},
+                0 0 24px ${hexAlpha(color,0.4)};
+            ">
+          </div>
+
+        </div>
+      `,
+      iconSize:[size,size],
+      iconAnchor:[size/2,size/2]
+    });
+  }
+
+  /*
+    =====================================================
+    EXISTING PUES
+    Solid filled circles
+    =====================================================
+  */
+  return L.divIcon({
+    className: '',
+    html: `
+      <div
+        style="
+          width:18px;
+          height:18px;
+          border-radius:50%;
+          background:${color};
+          border:2px solid rgba(255,255,255,0.18);
+
+          box-shadow:
+            0 0 10px ${hexAlpha(color,0.5)},
+            inset 0 0 6px rgba(255,255,255,0.18);
+        ">
+      </div>
+    `,
+    iconSize:[18,18],
+    iconAnchor:[9,9]
+  });
+}
+
+
+ /* -----------------------------------------------------------------
+   4. RENDERER
+   ----------------------------------------------------------------- */
+const Renderer = (() => {
+  // Layer groups for easy cleanup
+  let clusterLayer   = L.layerGroup();
+  let polygonLayer   = L.layerGroup();
+  let villageLayer   = L.layerGroup();
+  let pueLayer       = L.layerGroup();
+
+  function addLayers(map) {
+    clusterLayer.addTo(map);
+    polygonLayer.addTo(map);
+    villageLayer.addTo(map);
+    pueLayer.addTo(map);
+  }
+
+  /** Draw all cluster bubbles at national level */
+  function renderClusters(data) {
+    clusterLayer.clearLayers();
+    data.forEach(item => {
+      const { cluster } = item;
+      const marker = L.marker(cluster.center, { icon: makeClusterIcon(cluster) });
+
+      marker.on('click', () => AppState.drillToCluster(item));
+      marker.bindTooltip(`<b>${cluster.name}</b>`, {
+        direction:'top', offset:[0,-10],
+        className:'leaflet-tooltip'
+      });
+
+      clusterLayer.addLayer(marker);
+    });
+  }
+
+  /** Draw boundary polygon and village markers for a cluster */
+  function renderCluster(item) {
+    const cluster = item.cluster;
+    const villages = item.villages;
+    polygonLayer.clearLayers();
+    villageLayer.clearLayers();
+    pueLayer.clearLayers();
+
+    // Boundary polygon
+    const poly = L.polygon(cluster.boundary, {
+      color:       '#39a818',
+      weight:      2,
+      opacity:     0.5,
+      fillColor:   '#00e5ff',
+      fillOpacity: 0.08,
+      dashArray:   '6 4',
+    });
+    polygonLayer.addLayer(poly);
+
+    // Village markers
+    villages.forEach(village => {
+      const marker = L.marker(village.location, { icon: makeVillageIcon() });
+      marker.on('click', () => AppState.drillToVillage(item, village));
+      marker.bindTooltip(village.name, {
+        direction:'top', offset:[0,-18]
+      });
+      villageLayer.addLayer(marker);
+    });
+  }
+
+  /** Draw PUE + Lead markers for a specific village */
+  function renderVillage(village) {
+    pueLayer.clearLayers();
+
+    // 1. Draw the 1.4km radius boundary circle for the village
+    L.circle(village.location, {
+      radius: 1400,
+      color: '#00e5ff',
+      fillColor: '#00e5ff',
+      fillOpacity: 0.08,
+      weight: 1.5
+    }).addTo(pueLayer);
+
+    // 2. Render Existing PUEs
+    village.pues.forEach(pue => {
+      // Use PUE's explicit location if available, otherwise use jittered village location
+      const pueLocation = pue.location || _jitterLatLng(village.location, pue.id);
+      const marker = L.marker(
+        pueLocation,
+        { icon: makePueIcon('existing', pue.category) }
+      );
+      marker.bindPopup(buildPopup(pue, 'existing'), { maxWidth: 260 });
+      pueLayer.addLayer(marker);
+    });
+
+    // 3. Render Generated Leads
+    village.leads.forEach(lead => {
+      const marker = L.marker(
+        lead.location,
+        {
+          icon: makePueIcon(
+            'lead',
+            lead.category,
+            lead.estimated_load_kw
+          )
+        }
+      );
+      marker.bindPopup(buildPopup(lead, 'lead'), { maxWidth: 260 });
+      pueLayer.addLayer(marker);
+    });
+
+    // 4. Update legend with current counts
+    document.getElementById('legend-pue-count').textContent = village.pues.length;
+    document.getElementById('legend-lead-count').textContent = village.leads.length;
+  }
+  /** Slight deterministic jitter so markers don't stack on one point */
+  function _jitterLatLng([lat, lng], seed, scale = 0.0008) {
+    // simple numeric hash from seed string
+    let h = 0;
+    for (const c of seed) h = (h * 31 + c.charCodeAt(0)) & 0xffffffff;
+    const dlat = ((h & 0xfff) / 0xfff - 0.5) * 2 * scale;
+    const dlng = (((h >> 12) & 0xfff) / 0xfff - 0.5) * 2 * scale;
+    return [lat + dlat, lng + dlng];
+  }
+
+  /** Build popup HTML for a PUE or lead entity */
+  function buildPopup(entity, type) {
+    const color = catColor(entity.category);
+    const label = CONFIG.categoryLabel[entity.category] || entity.category;
+    const typeLabel = type === 'existing' ? 'Existing PUE' : 'Generated Lead';
+
+    return `
+      <div class="popup-card">
+        <div class="popup-type-tag ${type === 'existing' ? 'existing' : 'lead'}">${typeLabel}</div>
+        <div class="popup-name">${entity.name}</div>
+        <div class="popup-meta">
+          <div class="popup-row">
+            <span class="popup-key">Technology</span>
+            <span class="popup-val">${entity.technology}</span>
+          </div>
+          <div class="popup-row">
+            <span class="popup-key">Category</span>
+            <span class="popup-val" style="color:${color}">${label}</span>
+          </div>
+        </div>
+        <div class="popup-load">
+          <span class="load-num">${entity.estimated_load_kw}</span>
+          <span class="load-unit">kW estimated load</span>
+        </div>
+      </div>`;
+  }
+
+  /** Remove all cluster-level and below layers */
+  function clearClusterView() {
+    polygonLayer.clearLayers();
+    villageLayer.clearLayers();
+    pueLayer.clearLayers();
+  }
+
+  return { addLayers, renderClusters, renderCluster, renderVillage, clearClusterView };
+})();
+
+
+/* -----------------------------------------------------------------
+   5. APP STATE — level transitions
+   ----------------------------------------------------------------- */
+const AppState = (() => {
+  let _data    = [];
+  let _level   = 'national';   // national | cluster | village
+  let _cluster = null;
+  let _village = null;
+
+  /** Boot: load data and go to national view */
+  async function boot() {
+    _data = await DataLoader.load();
+
+    // Populate global stats bar
+    const totalPues  = _data.reduce((s,d) => s + d.cluster.summary.total_existing_pues, 0);
+    const totalLeads = _data.reduce((s,d) => s + d.cluster.summary.total_generated_leads, 0);
+    document.getElementById('global-pues').textContent  = totalPues;
+    document.getElementById('global-leads').textContent = totalLeads;
+
+    // Render national view
+    Renderer.renderClusters(_data);
+    document.getElementById('loader').classList.add('hidden');
+  }
+
+  /** Drill into a cluster (Meso level) */
+  function drillToCluster(item) {
+    _level   = 'cluster';
+    _cluster = item.cluster;
+    _village = null;
+    _villages = item.villages;
+
+    MapEngine.get().flyTo(item.cluster.center, 10, {
+  duration: 1.8,
+  easeLinearity: 0.18
+});
+    Renderer.renderCluster(item);
+    _updatePanel(item);
+    _updateBreadcrumb();
+    _showReset();
+    
+    // Reset legend counts for cluster view
+    document.getElementById('legend-pue-count').textContent = '—';
+    document.getElementById('legend-lead-count').textContent = '—';
+  }
+
+  /** Drill into a village (Micro level) */
+  function drillToVillage(item, village) {
+    _level   = 'village';
+    _cluster = item.cluster;
+    _village = village;
+
+    MapEngine.get().flyTo(village.location, 14, {
+  duration: 2.2,
+  easeLinearity: 0.15
+});
+    Renderer.renderVillage(village);
+    _updateVillageIndicator(village);
+    _updateBreadcrumb();
+  }
+
+  /** Reset to national view */
+  function resetToNational() {
+    _level   = 'national';
+    _cluster = null;
+    _village = null;
+
+    MapEngine.resetView();
+    Renderer.clearClusterView();
+    _closePanel();
+    _updateBreadcrumb();
+    _hideReset();
+    document.getElementById('village-indicator').style.display = 'none';
+    document.getElementById('village-analytics').style.display = 'none';
+    
+    // Reset legend counts for national view
+    document.getElementById('legend-pue-count').textContent = '—';
+    document.getElementById('legend-lead-count').textContent = '—';
+  }
+
+  /** Close the side panel without resetting map level */
+  function closePanel() {
+    _closePanel();
+  }
+
+  // ---- Private UI helpers ----
+
+  function _updatePanel(item) {
+    const cluster = item.cluster;
+    const villages = item.villages;
+    const s = cluster.summary;
+    document.getElementById('panel-cluster-name').textContent = cluster.name;
+    document.getElementById('stat-existing').textContent = s.total_existing_pues;
+    document.getElementById('stat-leads').textContent    = s.total_generated_leads;
+    document.getElementById('stat-category').textContent = s.dominant_category.slice(0,4);
+    document.getElementById('stat-area').textContent     = s.coverage_km2.toLocaleString();
+
+    // Village list
+    const container = document.getElementById('panel-villages');
+    container.innerHTML = '';
+    villages.forEach(v => {
+      const el = document.createElement('div');
+      el.className = 'village-item';
+      el.innerHTML = `
+        <div class="village-dot"></div>
+        <div class="village-name">${v.name}</div>
+        <div class="village-counts">
+          <span>${v.pues ? v.pues.length : 0}</span> PUEs · <span>${v.leads ? v.leads.length : 0}</span> leads
+        </div>`;
+      el.addEventListener('click', () => drillToVillage(item, v));
+      container.appendChild(el);
+    });
+
+    document.getElementById('panel').classList.add('open');
+  }
+
+  function _closePanel() {
+    document.getElementById('panel').classList.remove('open');
+  }
+
+  function _updateBreadcrumb() {
+    const bc = document.getElementById('breadcrumb');
+    let html = `<span class="crumb${_level==='national'?' active':''}" onclick="AppState.resetToNational()">National</span>`;
+
+    if (_cluster) {
+      html += `<span class="arrow">›</span>`;
+      html += `<span class="crumb${_level==='cluster'?' active':''}" onclick="AppState.drillToCluster(AppState._cluster)">${_cluster.name}</span>`;
+    }
+    if (_village) {
+      html += `<span class="arrow">›</span>`;
+      html += `<span class="crumb active">${_village.name}</span>`;
+    }
+    bc.innerHTML = html;
+  }
+
+  function _updateVillageIndicator(village) {
+    const el = document.getElementById('village-indicator');
+    document.getElementById('vi-name').textContent   = village.name;
+    document.getElementById('vi-counts').textContent =
+      `${village.pues.length} existing PUEs · ${village.leads.length} leads`;
+    el.style.display = 'block';
+    const totalLoad = village.leads.reduce(
+  (sum, lead) => sum + lead.estimated_load_kw,
+  0
+);
+
+document.getElementById('va-load').textContent =
+  `${totalLoad.toFixed(1)} kW`;
+
+document.getElementById('va-leads').textContent =
+  village.leads.length;
+
+document.getElementById('village-analytics').style.display = 'block';
+  }
+
+  function _showReset() {
+    const btn = document.getElementById('btn-reset');
+    btn.style.display = 'flex';
+  }
+
+  function _hideReset() {
+    document.getElementById('btn-reset').style.display = 'none';
+  }
+
+  // Expose _cluster for breadcrumb closure
+  return { boot, drillToCluster, drillToVillage, resetToNational, closePanel, get _cluster() { return _cluster; } };
+})();
+
+
+/* -----------------------------------------------------------------
+   6. DATA LOADER
+   ----------------------------------------------------------------- */
+const DataLoader = (() => {
+  async function load() {
+    try {
+      const res  = await fetch('./data.json');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return await res.json();
+    } catch (err) {
+      console.error('Failed to load data.json:', err);
+      // Return empty so the app still renders
+      return [];
+    }
+  }
+  return { load };
+})();
+
+
+/* -----------------------------------------------------------------
+   7. BOOTSTRAP
+   ----------------------------------------------------------------- */
+(function bootstrap() {
+  // Init map
+  const map = MapEngine.init();
+
+  // Attach all render layers to map
+  Renderer.addLayers(map);
+
+  // Boot app (load data)
+  AppState.boot();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1168 @@
+[
+  {
+  "roadshow": "Mwanika",
+  "cluster": {
+    "id": "Mwanika",
+    "name": "Mwanika Roadshow",
+    "center": [
+      -13.990547,
+      31.883918
+    ],
+    "boundary": [
+      [-13.945502, 31.883918],
+      [-13.958694, 31.916744],
+      [-13.990547, 31.930338],
+      [-14.022400, 31.916744],
+      [-14.035592, 31.883918],
+      [-14.022400, 31.851092],
+      [-13.990547, 31.837498],
+      [-13.958694, 31.851092]
+    ],
+    "summary": {
+      "total_existing_pues": 5,
+      "total_generated_leads": 71,
+      "dominant_category": "Agriculture",
+      "coverage_km2": 80
+    }
+  },
+  "villages": [
+    {
+      "id": "v-mwa-01",
+      "name": "Mwanika",
+      "location": [-13.990547, 31.883918],
+      "pues": [
+        {
+          "id": "p-mwa-01-01",
+          "name": "Mwanika Maize Mill",
+          "category": "food_processing",
+          "technology": "Hammer Mill",
+          "estimated_load_kw": 7.5,
+          "location": [-13.9898, 31.8825]
+        },
+        {
+          "id": "p-mwa-01-02",
+          "name": "Mwanika Welding Shop",
+          "category": "manufacturing",
+          "technology": "Welding Machine",
+          "estimated_load_kw": 5.0,
+          "location": [-13.9912, 31.8815]
+        },
+        {
+          "id": "p-mwa-01-03",
+          "name": "Mwanika Solar Pump",
+          "category": "agriculture",
+          "technology": "Solar Water Pump",
+          "estimated_load_kw": 1.5,
+          "location": [-13.9915, 31.8840]
+        }
+      ],
+      "leads": [
+        { "id": "l-mwa-01-01", "name": "Isaac Banda", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-13.9912, 31.8815] },
+        { "id": "l-mwa-01-02", "name": "Frank Mwanza", "category": "food_processing", "technology": "Dehuller and hammer mill", "estimated_load_kw": 12, "location": [-13.9885, 31.8841] },
+        { "id": "l-mwa-01-03", "name": "Alfred Phiri", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0, "location": [-13.9921, 31.8820] },
+        { "id": "l-mwa-01-04", "name": "Noah mwale", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0, "location": [-13.9898, 31.8855] },
+        { "id": "l-mwa-01-05", "name": "Ired Lungu", "category": "manufacturing", "technology": "Sewing machine", "estimated_load_kw": 0.1, "location": [-13.9920, 31.8850] },
+        { "id": "l-mwa-01-06", "name": "Ben Lungu", "category": "manufacturing", "technology": "Hand planner", "estimated_load_kw": 0.4, "location": [-13.9891, 31.8822] },
+        { "id": "l-mwa-01-07", "name": "Sajih Phiri", "category": "food_processing", "technology": "Freezit machine", "estimated_load_kw": 1, "location": [-13.9905, 31.8805] },
+        { "id": "l-mwa-01-08", "name": "Abraham Zulu", "category": "agriculture", "technology": "Big irrigation", "estimated_load_kw": 4.0, "location": [-13.9915, 31.8860] },
+        { "id": "l-mwa-01-09", "name": "Koshes Banda", "category": "micro_enterprise", "technology": "Backup Battery", "estimated_load_kw": 0.5, "location": [-13.9880, 31.8810] },
+        { "id": "l-mwa-01-10", "name": "Maxson Tembo", "category": "refrigeration", "technology": "Chest freezer", "estimated_load_kw": 0.15, "location": [-13.9930, 31.8830] },
+        { "id": "l-mwa-01-11", "name": "Samson Banda", "category": "manufacturing", "technology": "sewing machine", "estimated_load_kw": 0.1, "location": [-13.9902, 31.8845] },
+        { "id": "l-mwa-01-12", "name": "Grandson Lungu", "category": "micro_enterprise", "technology": "Display fridge", "estimated_load_kw": 0.45, "location": [-13.9895, 31.8828] },
+        { "id": "l-mwa-01-13", "name": "Elizabeth Chongwe", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-13.9918, 31.8835] },
+        { "id": "l-mwa-01-14", "name": "Ben Daka", "category": "manufacturing", "technology": "Hand planner", "estimated_load_kw": 0.4, "location": [-13.9908, 31.8812] },
+        { "id": "l-mwa-01-15", "name": "Mr Banda", "category": "food_processing", "technology": "Oil expeller", "estimated_load_kw": 12.0, "location": [-13.9888, 31.8848] },
+        { "id": "l-mwa-01-16", "name": "mr lungu", "category": "refrigeration", "technology": "Display fridge", "estimated_load_kw": 0.4, "location": [-13.9925, 31.8825] },
+        { "id": "l-mwa-01-17", "name": "Isaac Daka", "category": "refrigeration", "technology": "Solar fridge", "estimated_load_kw": 1, "location": [-13.9892, 31.8862] }
+      ]
+    },
+    {
+      "id": "v-mwa-02",
+      "name": "Makhwala",
+      "location": [-13.975, 31.905],
+      "pues": [],
+      "leads": [
+        { "id": "l-mwa-02-01", "name": "Christopher Phiri", "category": "micro_enterprise", "technology": "solar energiser", "estimated_load_kw": 0.5, "location": [-13.9741, 31.9062] },
+        { "id": "l-mwa-02-02", "name": "Abel Zulu", "category": "micro_enterprise", "technology": "solar energiser", "estimated_load_kw": 0.5, "location": [-13.9765, 31.9041] },
+        { "id": "l-mwa-02-03", "name": "Edson Phiri", "category": "refrigeration", "technology": "Fridge", "estimated_load_kw": 0.15, "location": [-13.9730, 31.9055] },
+        { "id": "l-mwa-02-04", "name": "Lifron Sakala", "category": "micro_enterprise", "technology": "Welding machine", "estimated_load_kw": 2.0, "location": [-13.9755, 31.9030] },
+        { "id": "l-mwa-02-05", "name": "jonathan", "category": "refrigeration", "technology": "Chest freezer", "estimated_load_kw": 0.15, "location": [-13.9760, 31.9065] },
+        { "id": "l-mwa-02-06", "name": "sam Phiri", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-13.9745, 31.9045] },
+        { "id": "l-mwa-02-07", "name": "Imileko Banda", "category": "micro_enterprise", "technology": "Barber machine", "estimated_load_kw": 0.2, "location": [-13.9752, 31.9058] },
+        { "id": "l-mwa-02-08", "name": "Fredrick Zulu", "category": "micro_enterprise", "technology": "Barber machine", "estimated_load_kw": 0.2, "location": [-13.9738, 31.9035] },
+        { "id": "l-mwa-02-09", "name": "Veronica Sakala", "category": "micro_enterprise", "technology": "Blower", "estimated_load_kw": 1.0, "location": [-13.9768, 31.9052] },
+        { "id": "l-mwa-02-10", "name": "Dorothy Phiri", "category": "refrigeration" , "technology": "Chest freezer", "estimated_load_kw": 1.5, "location": [-13.9770, 31.9070] },
+        { "id": "l-mwa-02-11", "name": "Micheal Zulu", "category": "micro_enterprise", "technology": "Barber machine", "estimated_load_kw": 0.2, "location": [-13.9748, 31.9048] },
+        { "id": "l-mwa-02-12", "name": "Wazaza Mwanza", "category": "micro_enterprise", "technology": "solar energiser", "estimated_load_kw": 0.5, "location": [-13.9758, 31.9038] }
+      ]
+    },
+    {
+      "id": "v-mwa-03",
+      "name": "Kasamba",
+      "location": [-14.015, 31.870],
+      "pues": [],
+      "leads": [
+        { "id": "l-mwa-03-01", "name": "Daniel Banda", "category": "micro_enterprise", "technology": "Welding machine", "estimated_load_kw": 5.0, "location": [-14.0162, 31.8721] },
+        { "id": "l-mwa-03-02", "name": "Luwiza luzu", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-14.0140, 31.8715] },
+        { "id": "l-mwa-03-03", "name": "Amon Sakala", "category": "micro_enterprise", "technology": "Barber machine", "estimated_load_kw": 0, "location": [-14.0145, 31.8685] },
+        { "id": "l-mwa-03-04", "name": "Malina Banda", "category": "micro_enterprise", "technology": "Blower", "estimated_load_kw": 1.0, "location": [-14.0158, 31.8695] },
+        { "id": "l-mwa-03-05", "name": "Jabulani Sakala", "category": "micro_enterprise", "technology": "sewing machine", "estimated_load_kw": 0.5, "location": [-14.0135, 31.8705] },
+        { "id": "l-mwa-03-06", "name": "Iran Mwanza", "category": "food_processing", "technology": "Freezit machine", "estimated_load_kw": 1, "location": [-14.0165, 31.8680] },
+        { "id": "l-mwa-03-07", "name": "Odina Banda", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-14.0148, 31.8725] },
+        { "id": "l-mwa-03-08", "name": "Bridget Banda", "category": "micro_enterprise", "technology": "Barber machine", "estimated_load_kw": 0, "location": [-14.0152, 31.8675] },
+        { "id": "l-mwa-03-09", "name": "Elizabeth Phiri", "category": "micro_enterprise", "technology": "Barber machine", "estimated_load_kw": 0, "location": [-14.0138, 31.8692] },
+        { "id": "l-mwa-03-10", "name": "Victoria Mbewe", "category": "micro_enterprise", "technology": "popcorn machine", "estimated_load_kw": 1.5, "location": [-14.0155, 31.8710] },
+        { "id": "l-mwa-03-11", "name": "Akran Banda", "category": "agriculture", "technology": "Egg incubator", "estimated_load_kw": 0.1, "location": [-14.0130, 31.8690] },
+        { "id": "l-mwa-03-12", "name": "Joseph Daka", "category": "micro_enterprise", "technology": " Air compressor", "estimated_load_kw": 1.5, "location": [-14.0170, 31.8705] },
+        { "id": "l-mwa-03-13", "name": "Masauso Phiri", "category": "micro_enterprise", "technology": "Barber machine", "estimated_load_kw": 0, "location": [-14.0142, 31.8708] },
+        { "id": "l-mwa-03-14", "name": "Frank Phiri", "category": "food_processing", "technology": "hammer mill and dehuller", "estimated_load_kw": 15, "location": [-14.0168, 31.8698] },
+        { "id": "l-mwa-03-15", "name": "Abison Ngoma", "category": "food_processing", "technology": "Oil expeller", "estimated_load_kw": 12, "location": [-14.0132, 31.8718] },
+        { "id": "l-mwa-03-16", "name": "Moses Nyangu", "category": "micro_enterprise", "technology": "Air compressor", "estimated_load_kw": 1.5, "location": [-14.0156, 31.8688] },
+        { "id": "l-mwa-03-17", "name": "Robert Phiri", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0, "location": [-14.0146, 31.8722] },
+        { "id": "l-mwa-03-18", "name": "Lemekani Phiri", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0, "location": [-14.0160, 31.8678] },
+        { "id": "l-mwa-03-19", "name": "Joseph Daka", "category": "micro_enterprise", "technology": "Air compressor", "estimated_load_kw": 1.5, "location": [-14.0136, 31.8682] },
+        { "id": "l-mwa-03-20", "name": "Joseph soko", "category": "agriculture", "technology": "Big irrigation", "estimated_load_kw": 4.0, "location": [-14.0154, 31.8714] }
+      ]
+    },
+    {
+      "id": "v-mwa-04",
+      "name": "Citelele",
+      "location": [-13.960, 31.850],
+      "pues": [],
+      "leads": [
+        { "id": "l-mwa-04-01", "name": "Alick Tembo", "category": "food_processing", "technology": "Chest freezer", "estimated_load_kw": 0.15, "location": [-13.9615, 31.8512] },
+        { "id": "l-mwa-04-02", "name": "Christopher Tembo", "category": "micro_enterprise", "technology": "Welding machine", "estimated_load_kw": 2.0, "location": [-13.9590, 31.8485] },
+        { "id": "l-mwa-04-03", "name": "Sindikani Mwanza", "category": "refrigeration", "technology": "Chest freezer", "estimated_load_kw": 0.15, "location": [-13.9605, 31.8495] },
+        { "id": "l-mwa-04-04", "name": "Fobilika Banda", "category": "food_processing", "technology": "Oil expeller", "estimated_load_kw": 12.0, "location": [-13.9585, 31.8520] }
+      ]
+    },
+    {
+      "id": "v-mwa-05",
+      "name": "Other Villages",
+      "location": [-13.995, 31.880],
+      "pues": [],
+      "leads": [
+        { "id": "l-mwa-05-01", "name": "Luka Mwale", "category": "food_processing", "technology": "7.5hp and 15hp hammer mill", "estimated_load_kw": 15.0, "location": [-13.980, 31.890] },
+        { "id": "l-mwa-05-02", "name": "Bidon Banda", "category": "food_processing", "technology": "Grinder", "estimated_load_kw": 2.0, "location": [-13.970, 31.880] },
+        { "id": "l-mwa-05-03", "name": "Underson Phiri", "category": "micro_enterprise", "technology": "Welding machine", "estimated_load_kw": 1.0, "location": [-14.000, 31.860] },
+        { "id": "l-mwa-05-04", "name": "Shadreck Banda", "category": "micro_enterprise", "technology": "Hand planner", "estimated_load_kw": 1.2, "location": [-14.020, 31.890] },
+        { "id": "l-mwa-05-05", "name": "Noah Daka", "category": "micro_enterprise", "technology": "Welding machine", "estimated_load_kw": 5.0, "location": [-13.950, 31.870] },
+        { "id": "l-mwa-05-06", "name": "Million Mwanza", "category": "refrigeration", "technology": "Chest freezer", "estimated_load_kw": 1.5, "location": [-13.990, 31.910] },
+        { "id": "l-mwa-05-07", "name": "Mike Zulu", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-14.030, 31.850] },
+        { "id": "l-mwa-05-08", "name": "misheck Banda", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-13.960, 31.890] },
+        { "id": "l-mwa-05-09", "name": "Mateyo Banda", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-14.010, 31.880] },
+        { "id": "l-mwa-05-10", "name": "Underson Banda", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-13.980, 31.860] },
+        { "id": "l-mwa-05-11", "name": "Shadreck Banda", "category": "micro_enterprise", "technology": "Hand planner", "estimated_load_kw": 1.2, "location": [-14.021, 31.891] },
+        { "id": "l-mwa-05-12", "name": "Gamalile Sakala", "category": "micro_enterprise", "technology": "Welding machine", "estimated_load_kw": 5.0, "location": [-14.000, 31.920] },
+        { "id": "l-mwa-05-13", "name": "Solobiya", "category": "refrigeration", "technology": "Chest freezer", "estimated_load_kw": 1.5, "location": [-13.970, 31.910] },
+        { "id": "l-mwa-05-14", "name": "kosha", "category": "refrigeration", "technology": "Chest freezer", "estimated_load_kw": 1.5, "location": [-13.971, 31.881] },
+        { "id": "l-mwa-05-15", "name": "Ziko", "category": "micro_enterprise", "technology": "Hand planner", "estimated_load_kw": 1.2, "location": [-13.951, 31.871] },
+        { "id": "l-mwa-05-16", "name": "Masauso Mwanza", "category": "micro_enterprise", "technology": "Barber machine", "estimated_load_kw": 0.2, "location": [-14.020, 31.840] },
+        { "id": "l-mwa-05-17", "name": "Kelvin Phiri", "category": "refrigeration", "technology": "Chest freezer", "estimated_load_kw": 1.5, "location": [-13.950, 31.840] },
+        { "id": "l-mwa-05-18", "name": "kambani Mwale", "category": "micro_enterprise", "technology": "Grinder", "estimated_load_kw": 2.0, "location": [-13.990, 31.840] }
+      ]
+    }
+  ]
+},{
+    "roadshow": "Petulo",
+    "cluster": {
+      "id": "c-petulo",
+      "name": "Petulo Roadshow",
+      "center": [
+        -14.426631,
+        31.725137
+      ],
+      "boundary": [
+        [-14.381631, 31.725137],
+        [-14.394823, 31.757963],
+        [-14.426631, 31.771137],
+        [-14.458439, 31.757963],
+        [-14.471631, 31.725137],
+        [-14.458439, 31.692311],
+        [-14.426631, 31.679137],
+        [-14.394823, 31.692311]
+      ],
+      "summary": {
+        "total_existing_pues": 0,
+        "total_generated_leads": 41,
+        "dominant_category": "Agriculture",
+        "coverage_km2": 5
+      }
+    },
+    "villages": [
+      {
+        "id": "v-pet-01",
+        "name": "Petulo & Sub-sites",
+        "location": [
+          -14.426631,
+          31.725137
+        ],
+        "pues": [],
+        "leads": [
+          { "id": "l-pet-01-01", "name": "Rabson phiri", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4271, 31.7245] },
+          { "id": "l-pet-01-02", "name": "Thaulosi phiri", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4260, 31.7258] },
+          { "id": "l-pet-01-03", "name": "Paul Daka", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4255, 31.7240] },
+          { "id": "l-pet-01-04", "name": "Yoram Phiri", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4280, 31.7265] },
+          { "id": "l-pet-01-05", "name": "Moses Daka", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4295, 31.7230] },
+          { "id": "l-pet-01-06", "name": "Tisangalale", "category": "agriculture", "technology": "Groundnut sheller", "estimated_load_kw": 2.0, "location": [-14.4248, 31.7272] },
+          { "id": "l-pet-01-07", "name": "Bostoni Phiri", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4275, 31.7225] },
+          { "id": "l-pet-01-08", "name": "Phlossy Maseko", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4268, 31.7260] },
+          { "id": "l-pet-01-09", "name": "Mike Banda", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4250, 31.7248] },
+          { "id": "l-pet-01-10", "name": "Saratel Zulu", "category": "food_processing", "technology": "Grinder", "estimated_load_kw": 2.0, "location": [-14.4285, 31.7255] },
+          { "id": "l-pet-01-11", "name": "Davison Banda", "category": "micro_enterprise", "technology": "popcorn machine", "estimated_load_kw": 1.5, "location": [-14.4262, 31.7235] },
+          { "id": "l-pet-01-12", "name": "Yoram phiri", "category": "services", "technology": "barber machine", "estimated_load_kw": 0.2, "location": [-14.4278, 31.7242] },
+          { "id": "l-pet-01-13", "name": "Joseph Banda", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4255, 31.7268] },
+          { "id": "l-pet-01-14", "name": "Sichiuunda Emmanuel", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4290, 31.7275] },
+          { "id": "l-pet-01-15", "name": "Alick Mwale", "category": "manufacturing", "technology": "Bosch circular saw", "estimated_load_kw": 1.5, "location": [-14.4245, 31.7250] },
+          { "id": "l-pet-01-16", "name": "Acklas Banda", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4265, 31.7238] },
+          { "id": "l-pet-01-17", "name": "Andsen B Phiri", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4282, 31.7262] },
+          { "id": "l-pet-01-18", "name": "Joseph Banda", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4258, 31.7228] },
+          { "id": "l-pet-01-19", "name": "Chipalala Cooperative", "category": "food_processing", "technology": "peanut butter machine", "estimated_load_kw": 2.0, "location": [-14.4272, 31.7252] },
+          { "id": "l-pet-01-20", "name": "Mack Banda", "category": "manufacturing", "technology": "Miter saw,Grinder, welding machine", "estimated_load_kw": 6.5, "location": [-14.4252, 31.7265] },
+          { "id": "l-pet-01-21", "name": "Rabson Banda", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4268, 31.7240] },
+          { "id": "l-pet-01-22", "name": "Esau phiri", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4275, 31.7270] },
+          { "id": "l-pet-01-23", "name": "Isaac phiri", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4250, 31.7232] },
+          { "id": "l-pet-01-24", "name": "Agness Mwanza", "category": "community", "technology": "home solar light", "estimated_load_kw": 0.1, "location": [-14.4288, 31.7248] },
+          { "id": "l-pet-01-25", "name": "Elias Zulu", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4260, 31.7272] },
+          { "id": "l-pet-01-26", "name": "Moses Zulu", "category": "agriculture", "technology": "sheller", "estimated_load_kw": 8.0, "location": [-14.4292, 31.7258] },
+          { "id": "l-pet-01-27", "name": "Bwazani phiri", "category": "services", "technology": "solar fridge", "estimated_load_kw": 0.8, "location": [-14.4248, 31.7260] }
+        ]
+      },
+      {
+        "id": "v-pet-02",
+        "name": "Chataika",
+        "location": [
+          -14.410500,
+          31.715200
+        ],
+        "pues": [],
+        "leads": [
+          { "id": "l-pet-02-01", "name": "Janipher Tembo", "category": "food_processing", "technology": "Freezit Machine", "estimated_load_kw": 2.0, "location": [-14.4100, 31.7155] },
+          { "id": "l-pet-02-02", "name": "Martha phiri", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4112, 31.7148] },
+          { "id": "l-pet-02-03", "name": "Rangiwe phiri", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4098, 31.7160] }
+        ]
+      },
+      {
+        "id": "v-pet-03",
+        "name": "Kalale",
+        "location": [
+          -14.435500,
+          31.735200
+        ],
+        "pues": [],
+        "leads": [
+          { "id": "l-pet-03-01", "name": "Joyce Mwanza", "category": "micro_enterprise", "technology": "popcorn machine", "estimated_load_kw": 1.5, "location": [-14.4350, 31.7355] },
+          { "id": "l-pet-03-02", "name": "Rahabe phiri", "category": "micro_enterprise", "technology": "popcorn machine", "estimated_load_kw": 1.5, "location": [-14.4362, 31.7348] }
+        ]
+      },
+      {
+        "id": "v-pet-04",
+        "name": "Surrounding Sites",
+        "location": [
+          -14.440500,
+          31.710200
+        ],
+        "pues": [],
+        "leads": [
+          { "id": "l-pet-04-01", "name": "Jeremiss phiri", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4450, 31.6950] },
+          { "id": "l-pet-04-02", "name": "Teresa Tembo", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4500, 31.7050] },
+          { "id": "l-pet-04-03", "name": "Makadani phiri", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4300, 31.6900] },
+          { "id": "l-pet-04-04", "name": "Patrick phiri", "category": "micro_enterprise", "technology": "popcorn machine", "estimated_load_kw": 1.5, "location": [-14.4000, 31.7400] },
+          { "id": "l-pet-04-05", "name": "Joseph phiri", "category": "services", "technology": "barber machine", "estimated_load_kw": 0.2, "location": [-14.4150, 31.6850] },
+          { "id": "l-pet-04-06", "name": "Peter phiri", "category": "transport", "technology": "E-bike", "estimated_load_kw": 0.5, "location": [-14.4550, 31.7450] },
+          { "id": "l-pet-04-07", "name": "Philip Lungu", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.3900, 31.7100] },
+          { "id": "l-pet-04-08", "name": "Jackson Shawa", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.4600, 31.7300] },
+          { "id": "l-pet-04-09", "name": "Avelina phiri", "category": "food_processing", "technology": "deep freezer", "estimated_load_kw": 1.5, "location": [-14.4050, 31.7500] }
+        ]
+      }
+    ]
+  },{
+    "roadshow": "Kanyanga",
+    "cluster": {
+      "id": "c-kanyanga",
+      "name": "Kanyanga Roadshow",
+      "center": [
+        -14.521081,
+        31.175487
+      ],
+      "boundary": [
+        [-14.430991, 31.175487],
+        [-14.457381, 31.241287],
+        [-14.521081, 31.268587],
+        [-14.584781, 31.241287],
+        [-14.611171, 31.175487],
+        [-14.584781, 31.109687],
+        [-14.521081, 31.082387],
+        [-14.457381, 31.109687]
+      ],
+      "summary": {
+        "total_existing_pues": 0,
+        "total_generated_leads": 29,
+        "dominant_category": "Agriculture",
+        "coverage_km2": 314
+      }
+    },
+    "villages": [
+      {
+        "id": "v-kan-01",
+        "name": "Kanyanga Main",
+        "location": [
+          -14.521081,
+          31.175487
+        ],
+        "pues": [],
+        "leads": [
+          { "id": "l-kan-01-01", "name": "Eneless Mwanza", "category": "food_processing", "technology": "Cook stove", "estimated_load_kw": 1.0, "location": [-14.5215, 31.1750] },
+          { "id": "l-kan-01-02", "name": "Christine Sakala", "category": "manufacturing", "technology": "Blower", "estimated_load_kw": 1.0, "location": [-14.5205, 31.1762] },
+          { "id": "l-kan-01-03", "name": "Jenefer Sakala", "category": "food_processing", "technology": "Freezer 210l", "estimated_load_kw": 1.5, "location": [-14.5220, 31.1745] },
+          { "id": "l-kan-01-04", "name": "Justina Mwanza", "category": "manufacturing", "technology": "Sewing Machine", "estimated_load_kw": 0.5, "location": [-14.5198, 31.1758] },
+          { "id": "l-kan-01-05", "name": "Thaulo Daka", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.5212, 31.1770] },
+          { "id": "l-kan-01-06", "name": "Jackson Lungu", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.5225, 31.1765] },
+          { "id": "l-kan-01-07", "name": "Mabvuto Banda", "category": "manufacturing", "technology": "Compressor", "estimated_load_kw": 3.0, "location": [-14.5202, 31.1740] },
+          { "id": "l-kan-01-08", "name": "Peter Mwanza", "category": "agriculture", "technology": "Egg Incubator", "estimated_load_kw": 0.5, "location": [-14.5190, 31.1752] },
+          { "id": "l-kan-01-09", "name": "Elias Sakala", "category": "agriculture", "technology": "Egg Incubator", "estimated_load_kw": 0.5, "location": [-14.5185, 31.1760] },
+          { "id": "l-kan-01-10", "name": "Arnold Sakala", "category": "food_processing", "technology": "oil expeller combined", "estimated_load_kw": 12.0, "location": [-14.5230, 31.1755] },
+          { "id": "l-kan-01-11", "name": "Samson Mumba", "category": "manufacturing", "technology": "Welding Machine/angle grinder", "estimated_load_kw": 2.0, "location": [-14.5218, 31.1735] }
+        ]
+      },
+      {
+        "id": "v-kan-02",
+        "name": "Jeke",
+        "location": [
+          -14.505000,
+          31.185000
+        ],
+        "pues": [],
+        "leads": [
+          { "id": "l-kan-02-01", "name": "Samson Tembo", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.5055, 31.1845] },
+          { "id": "l-kan-02-02", "name": "Lenad Zulu", "category": "transport", "technology": "E-bike", "estimated_load_kw": 0.5, "location": [-14.5042, 31.1858] },
+          { "id": "l-kan-02-03", "name": "Tiyezye Banda", "category": "food_processing", "technology": "Freezer 210l", "estimated_load_kw": 1.5, "location": [-14.5060, 31.1840] },
+          { "id": "l-kan-02-04", "name": "Sarah Tembo", "category": "transport", "technology": "E-bike", "estimated_load_kw": 0.5, "location": [-14.5038, 31.1865] },
+          { "id": "l-kan-02-05", "name": "Mirram Zulu", "category": "food_processing", "technology": "Pressure cooker", "estimated_load_kw": 1.0, "location": [-14.5052, 31.1852] },
+          { "id": "l-kan-02-06", "name": "Christina Mumba", "category": "food_processing", "technology": "Pressure cooker", "estimated_load_kw": 1.0, "location": [-14.5048, 31.1835] },
+          { "id": "l-kan-02-07", "name": "Lekensna Sakala", "category": "community", "technology": "Biogass", "estimated_load_kw": 0.0, "location": [-14.5065, 31.1860] },
+          { "id": "l-kan-02-08", "name": "Dailess Daka", "category": "food_processing", "technology": "Pressure cooker", "estimated_load_kw": 1.0, "location": [-14.5040, 31.1842] }
+        ]
+      },
+      {
+        "id": "v-kan-03",
+        "name": "Surrounding Sub-sites",
+        "location": [
+          -14.535000,
+          31.160000
+        ],
+        "pues": [],
+        "leads": [
+          { "id": "l-kan-03-01", "name": "David Tembo", "category": "services", "technology": "barber machine", "estimated_load_kw": 0.2, "location": [-14.5380, 31.1550] },
+          { "id": "l-kan-03-02", "name": "Nebert phiri", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.5450, 31.1650] },
+          { "id": "l-kan-03-03", "name": "Given Tembo", "category": "manufacturing", "technology": "Sewing Machine", "estimated_load_kw": 0.5, "location": [-14.5300, 31.1500] },
+          { "id": "l-kan-03-04", "name": "Kelas Tembo", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.5500, 31.1450] },
+          { "id": "l-kan-03-05", "name": "Samuel Zulu", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.5250, 31.1680] },
+          { "id": "l-kan-03-06", "name": "Giliman Zulu", "category": "food_processing", "technology": "Freezer 210l", "estimated_load_kw": 1.5, "location": [-14.5400, 31.1700] },
+          { "id": "l-kan-03-07", "name": "Ericho Zulu", "category": "food_processing", "technology": "Freezer 210l", "estimated_load_kw": 1.5, "location": [-14.5320, 31.1580] },
+          { "id": "l-kan-03-08", "name": "Jackson mumba", "category": "food_processing", "technology": "fridge 210l/micro pump", "estimated_load_kw": 2.0, "location": [-14.5600, 31.1550] },
+          { "id": "l-kan-03-09", "name": "Maxwell Daka", "category": "food_processing", "technology": "fridge 210l", "estimated_load_kw": 1.5, "location": [-14.4700, 31.2200] },
+          { "id": "l-kan-03-10", "name": "Brian Njovu", "category": "agriculture", "technology": "Micro Irrigation", "estimated_load_kw": 0.08, "location": [-14.5420, 31.1520] }
+        ]
+      }
+    ]
+  }
+  ,  {
+    "roadshow": "Moyo",
+    "cluster": {
+      "id": "moyo",
+      "name": "Moyo Roadshow",
+      "center": [-17.028297, 26.471701],
+      "boundary": [
+        [-16.938297, 26.471701],
+        [-16.964657, 26.535341],
+        [-17.028297, 26.561701],
+        [-17.091937, 26.535341],
+        [-17.118297, 26.471701],
+        [-17.091937, 26.408061],
+        [-17.028297, 26.381701],
+        [-16.964657, 26.408061]
+      ],
+      "summary": {
+        "total_existing_pues": 0,
+        "total_generated_leads": 21,
+        "dominant_category": "Micro Irrigation",
+        "coverage_km2": 314
+      }
+    },
+    "villages": [
+      {
+        "id": "v-moyo-01",
+        "name": "Moyo",
+        "location": [-17.028297, 26.471701],
+        "pues": [],
+        "leads": [
+          {
+            "id": "l-moyo-01-01",
+            "name": "Smart Mudebwe",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "0955188627/0978401960",
+            "location": [-17.028297, 26.471701]
+          },
+          {
+            "id": "l-moyo-01-02",
+            "name": "Hankanga Charles",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "950245854",
+            "location": [-17.026500, 26.473200]
+          },
+          {
+            "id": "l-moyo-01-03",
+            "name": "Hapaku Raston",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "956123460",
+            "location": [-17.030100, 26.469800]
+          },
+          {
+            "id": "l-moyo-01-04",
+            "name": "Hapaku Total",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "950878065",
+            "location": [-17.031200, 26.470900]
+          },
+          {
+            "id": "l-moyo-01-05",
+            "name": "Richard Sinakabwana",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "",
+            "location": [-17.027100, 26.474500]
+          },
+          {
+            "id": "l-moyo-01-06",
+            "name": "Simsom Bortis",
+            "category": "agriculture",
+            "technology": "Big Irrigation (Cooperation)",
+            "estimated_load_kw": 5.0,
+            "contact_number": "951994646",
+            "location": [-17.024800, 26.468700]
+          },
+          {
+            "id": "l-moyo-01-07",
+            "name": "Sikufweba Cliford",
+            "category": "manufacturing",
+            "technology": "Peanut Maker",
+            "estimated_load_kw": 2.0,
+            "contact_number": "969203282",
+            "location": [-17.032500, 26.472400]
+          },
+          {
+            "id": "l-moyo-01-08",
+            "name": "Wastone Hamaunda",
+            "category": "manufacturing",
+            "technology": "10Hp Motor",
+            "estimated_load_kw": 7.5,
+            "contact_number": "955326203",
+            "location": [-17.026900, 26.466900]
+          },
+          {
+            "id": "l-moyo-01-09",
+            "name": "Kalowa Emmanuel",
+            "category": "agriculture",
+            "technology": "Egg Incubator",
+            "estimated_load_kw": 0.1,
+            "contact_number": "977615570",
+            "location": [-17.029000, 26.476000]
+          },
+          {
+            "id": "l-moyo-01-10",
+            "name": "Jane Mwaana",
+            "category": "micro_enterprise",
+            "technology": "Hair Dryer",
+            "estimated_load_kw": 1.2,
+            "contact_number": "571255910",
+            "location": [-17.023800, 26.470300]
+          },
+          {
+            "id": "l-moyo-01-11",
+            "name": "Sinakabwene Richard",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "No phone/Win knows him",
+            "location": [-17.033000, 26.468100]
+          },
+          {
+            "id": "l-moyo-01-12",
+            "name": "Patrick Nzala",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "953664350",
+            "location": [-17.025700, 26.473800]
+          },
+          {
+            "id": "l-moyo-01-13",
+            "name": "Hapaku Comment",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "0968030953/0773612857",
+            "location": [-17.027900, 26.467400]
+          },
+          {
+            "id": "l-moyo-01-14",
+            "name": "Paul Sitole",
+            "category": "food_processing",
+            "technology": "7.5HP Hammer Mill",
+            "estimated_load_kw": 7.5,
+            "contact_number": "770080801",
+            "location": [-17.028600, 26.478500]
+          }
+        ]
+      },
+      {
+        "id": "v-moyo-02",
+        "name": "Sikatumba",
+        "location": [-17.045000, 26.490000],
+        "pues": [],
+        "leads": [
+          {
+            "id": "l-moyo-02-01",
+            "name": "Kennedy Hazyondo",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "968110734",
+            "location": [-17.044000, 26.489000]
+          },
+          {
+            "id": "l-moyo-02-02",
+            "name": "Ennedy Hanzyondondo",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "968110734",
+            "location": [-17.046200, 26.491500]
+          }
+        ]
+      },
+      {
+        "id": "v-moyo-03",
+        "name": "Mazuka",
+        "location": [-17.010000, 26.455000],
+        "pues": [],
+        "leads": [
+          {
+            "id": "l-moyo-03-01",
+            "name": "Sadom Mudenda",
+            "category": "agriculture",
+            "technology": "Big Irrigation",
+            "estimated_load_kw": 5.0,
+            "contact_number": "950965045",
+            "location": [-17.011200, 26.456300]
+          },
+          {
+            "id": "l-moyo-03-02",
+            "name": "Cane Mboyonga",
+            "category": "agriculture",
+            "technology": "Egg Incubator",
+            "estimated_load_kw": 0.1,
+            "contact_number": "953863738",
+            "location": [-17.009500, 26.453800]
+          }
+        ]
+      },
+      {
+        "id": "v-moyo-04",
+        "name": "Mudenda",
+        "location": [-17.050000, 26.440000],
+        "pues": [],
+        "leads": [
+          {
+            "id": "l-moyo-04-01",
+            "name": "Danny Chiyumuka",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "976064166",
+            "location": [-17.051300, 26.441500]
+          }
+        ]
+      },
+      {
+        "id": "v-moyo-05",
+        "name": "Hankalonge",
+        "location": [-17.020000, 26.500000],
+        "pues": [],
+        "leads": [
+          {
+            "id": "l-moyo-05-01",
+            "name": "Bristol Musaka",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "973430034",
+            "location": [-17.021200, 26.501300]
+          }
+        ]
+      },
+      {
+        "id": "v-moyo-06",
+        "name": "Mulanfu",
+        "location": [-17.000000, 26.430000],
+        "pues": [],
+        "leads": [
+          {
+            "id": "l-moyo-06-01",
+            "name": "Opulent Mwinga",
+            "category": "micro_enterprise",
+            "technology": "Barber Machine",
+            "estimated_load_kw": 0.2,
+            "contact_number": "972119583",
+            "location": [-17.001500, 26.431100]
+          }
+        ]
+      },
+      {
+        "id": "v-moyo-07",
+        "name": "Lele",
+        "location": [-17.015000, 26.460000],
+        "pues": [],
+        "leads": [
+          {
+            "id": "l-moyo-07-01",
+            "name": "Hankunga Charles",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "950245854",
+            "location": [-17.016000, 26.461500]
+          }
+        ]
+      }
+    ]
+  },  {
+    "roadshow": "Nkandonzavu",
+    "cluster": {
+      "id": "nkandonzavu",
+      "name": "Nkandonzabvu Roadshow",
+      "center": [-16.106557, 26.197547],
+      "boundary": [
+        [-16.016557, 26.197547],
+        [-16.042917, 26.261187],
+        [-16.106557, 26.287547],
+        [-16.170197, 26.261187],
+        [-16.196557, 26.197547],
+        [-16.170197, 26.133907],
+        [-16.106557, 26.107547],
+        [-16.042917, 26.133907]
+      ],
+      "summary": {
+        "total_existing_pues": 0,
+        "total_generated_leads": 39,
+        "dominant_category": "Micro Irrigation",
+        "coverage_km2": 314
+      }
+    },
+    "villages": [
+      {
+        "id": "v-nka-01",
+        "name": "Nkandonzavu",
+        "location": [-16.106557, 26.197547],
+        "pues": [],
+        "leads": [
+          {
+            "id": "l-nka-01-01",
+            "name": "Douglas Muchindo",
+            "category": "micro_enterprise",
+            "technology": "Shaving Machines",
+            "estimated_load_kw": 0.2,
+            "contact_number": "978684598",
+            "location": [-16.106557, 26.197547]
+          },
+          {
+            "id": "l-nka-01-02",
+            "name": "Beatrice Maiza",
+            "category": "micro_enterprise",
+            "technology": "Blower",
+            "estimated_load_kw": 1.0,
+            "contact_number": "776931113",
+            "location": [-16.105100, 26.198900]
+          },
+          {
+            "id": "l-nka-01-03",
+            "name": "Hebert Simate",
+            "category": "food_processing",
+            "technology": "Oil Expeller",
+            "estimated_load_kw": 12.0,
+            "contact_number": "776774292",
+            "location": [-16.107300, 26.196400]
+          },
+          {
+            "id": "l-nka-01-04",
+            "name": "Madson Sigle",
+            "category": "manufacturing",
+            "technology": "Motor",
+            "estimated_load_kw": 5.0,
+            "contact_number": "979274094",
+            "location": [-16.104800, 26.195800]
+          },
+          {
+            "id": "l-nka-01-05",
+            "name": "Kanyinji Masho",
+            "category": "food_processing",
+            "technology": "Hammer Mill Dehuller",
+            "estimated_load_kw": 15.0,
+            "contact_number": "971052997",
+            "location": [-16.108000, 26.199500]
+          },
+          {
+            "id": "l-nka-01-06",
+            "name": "Nsende Phannel",
+            "category": "food_processing",
+            "technology": "Hammer Mill Dehuller",
+            "estimated_load_kw": 15.0,
+            "contact_number": "978609439",
+            "location": [-16.106900, 26.201200]
+          },
+          {
+            "id": "l-nka-01-07",
+            "name": "Habeenzu",
+            "category": "micro_enterprise",
+            "technology": "Popcorn Machine",
+            "estimated_load_kw": 1.5,
+            "contact_number": "977707436",
+            "location": [-16.103700, 26.198100]
+          },
+          {
+            "id": "l-nka-01-08",
+            "name": "Gift Mwelwa",
+            "category": "agriculture",
+            "technology": "Mini Pump",
+            "estimated_load_kw": 0.5,
+            "contact_number": "770218233",
+            "location": [-16.109500, 26.196900]
+          },
+          {
+            "id": "l-nka-01-09",
+            "name": "Febby Kwando",
+            "category": "micro_enterprise",
+            "technology": "Blower",
+            "estimated_load_kw": 1.0,
+            "contact_number": "971960513",
+            "location": [-16.105500, 26.202100]
+          },
+          {
+            "id": "l-nka-01-10",
+            "name": "Mwenzu",
+            "category": "manufacturing",
+            "technology": "Welding Machine",
+            "estimated_load_kw": 5.0,
+            "contact_number": "978191755",
+            "location": [-16.107700, 26.194700]
+          },
+          {
+            "id": "l-nka-01-11",
+            "name": "Francis Chanda",
+            "category": "food_processing",
+            "technology": "Peanut Maker",
+            "estimated_load_kw": 2.0,
+            "contact_number": "979673144",
+            "location": [-16.110100, 26.198300]
+          },
+          {
+            "id": "l-nka-01-12",
+            "name": "Fredrick Mukali",
+            "category": "agriculture",
+            "technology": "Irrigation",
+            "estimated_load_kw": 2.0,
+            "contact_number": "978519566",
+            "location": [-16.102900, 26.197000]
+          },
+          {
+            "id": "l-nka-01-13",
+            "name": "Osward Sabani",
+            "category": "agriculture",
+            "technology": "Irrigation",
+            "estimated_load_kw": 2.0,
+            "contact_number": "971898432",
+            "location": [-16.111000, 26.200100]
+          },
+          {
+            "id": "l-nka-01-14",
+            "name": "Hendrix Nsanganya",
+            "category": "manufacturing",
+            "technology": "T Shirt Printing Machine",
+            "estimated_load_kw": 2.5,
+            "contact_number": "776780919",
+            "location": [-16.104200, 26.203500]
+          },
+          {
+            "id": "l-nka-01-15",
+            "name": "Haggai Kayamba",
+            "category": "manufacturing",
+            "technology": "Sewing Machine",
+            "estimated_load_kw": 0.1,
+            "contact_number": "975862025",
+            "location": [-16.108400, 26.204100]
+          },
+          {
+            "id": "l-nka-01-16",
+            "name": "Siachija Collin",
+            "category": "manufacturing",
+            "technology": "Welding Machine",
+            "estimated_load_kw": 5.0,
+            "contact_number": "977684140",
+            "location": [-16.101800, 26.195200]
+          },
+          {
+            "id": "l-nka-01-17",
+            "name": "Sichaba Kayunga",
+            "category": "food_processing",
+            "technology": "Combined Oil Expeller",
+            "estimated_load_kw": 15.0,
+            "contact_number": "972393583",
+            "location": [-16.112000, 26.197800]
+          },
+          {
+            "id": "l-nka-01-18",
+            "name": "Kelley Moomba",
+            "category": "refrigeration",
+            "technology": "Chest Freezer",
+            "estimated_load_kw": 1.5,
+            "contact_number": "972125390",
+            "location": [-16.109000, 26.193900]
+          },
+          {
+            "id": "l-nka-01-19",
+            "name": "Apred Chilindu",
+            "category": "refrigeration",
+            "technology": "Chest Freezer",
+            "estimated_load_kw": 1.5,
+            "contact_number": "976110803",
+            "location": [-16.100900, 26.200800]
+          },
+          {
+            "id": "l-nka-01-20",
+            "name": "Goshen Muziyamba",
+            "category": "micro_enterprise",
+            "technology": "Trimmer",
+            "estimated_load_kw": 0.2,
+            "contact_number": "571543525",
+            "location": [-16.107100, 26.205000]
+          },
+          {
+            "id": "l-nka-01-21",
+            "name": "Muchaili Euster",
+            "category": "micro_enterprise",
+            "technology": "Popcorn Machine",
+            "estimated_load_kw": 1.5,
+            "contact_number": "979869268",
+            "location": [-16.105700, 26.192600]
+          },
+          {
+            "id": "l-nka-01-22",
+            "name": "Bosco Chabakola",
+            "category": "agriculture",
+            "technology": "Soil Testing Machine",
+            "estimated_load_kw": 1.0,
+            "contact_number": "978399802",
+            "location": [-16.103400, 26.194200]
+          },
+          {
+            "id": "l-nka-01-23",
+            "name": "Hankuba",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "771572751",
+            "location": [-16.110500, 26.202700]
+          },
+          {
+            "id": "l-nka-01-24",
+            "name": "Kelvin Kanyemu",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "975276199",
+            "location": [-16.101200, 26.198600]
+          },
+          {
+            "id": "l-nka-01-25",
+            "name": "Alfred Chilundu",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "976110803",
+            "location": [-16.111500, 26.196100]
+          },
+          {
+            "id": "l-nka-01-26",
+            "name": "Ivin Chalyolola",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "970252141",
+            "location": [-16.104600, 26.201800]
+          },
+          {
+            "id": "l-nka-01-27",
+            "name": "Robert Kalalika",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "979533505",
+            "location": [-16.108800, 26.195500]
+          },
+          {
+            "id": "l-nka-01-28",
+            "name": "Ack Moonga",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "777868909",
+            "location": [-16.100400, 26.196700]
+          },
+          {
+            "id": "l-nka-01-29",
+            "name": "Himbayi Voster",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "973419152",
+            "location": [-16.112300, 26.199300]
+          },
+          {
+            "id": "l-nka-01-30",
+            "name": "Oatham Hamgindu",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "776422119",
+            "location": [-16.106200, 26.193100]
+          },
+          {
+            "id": "l-nka-01-31",
+            "name": "Vincent Hazemba",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "979467773",
+            "location": [-16.102300, 26.203100]
+          },
+          {
+            "id": "l-nka-01-32",
+            "name": "William Muchindu",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "770996164",
+            "location": [-16.109600, 26.204400]
+          },
+          {
+            "id": "l-nka-01-33",
+            "name": "Gilbert Chamwa",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "774044801",
+            "location": [-16.103100, 26.191800]
+          },
+          {
+            "id": "l-nka-01-34",
+            "name": "Rammy Sipande",
+            "category": "refrigeration",
+            "technology": "Freezer 245L",
+            "estimated_load_kw": 1.5,
+            "contact_number": "972229696",
+            "location": [-16.107900, 26.206000]
+          },
+          {
+            "id": "l-nka-01-35",
+            "name": "Cheelo Siwende",
+            "category": "refrigeration",
+            "technology": "Freezer 245L",
+            "estimated_load_kw": 1.5,
+            "contact_number": "975150054",
+            "location": [-16.101700, 26.192900]
+          },
+          {
+            "id": "l-nka-01-36",
+            "name": "Micheal Siambulo",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "776747003",
+            "location": [-16.110800, 26.194400]
+          },
+          {
+            "id": "l-nka-01-37",
+            "name": "Phanwell Nsendu",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "978609439",
+            "location": [-16.105000, 26.205500]
+          }
+        ]
+      },
+      {
+        "id": "v-nka-02",
+        "name": "Kalomo Boma",
+        "location": [-16.130000, 26.220000],
+        "pues": [],
+        "leads": [
+          {
+            "id": "l-nka-02-01",
+            "name": "M. Mashekana",
+            "category": "agriculture",
+            "technology": "Micro Irrigation",
+            "estimated_load_kw": 0.08,
+            "contact_number": "977801416",
+            "location": [-16.129000, 26.221500]
+          }
+        ]
+      },
+      {
+        "id": "v-nka-03",
+        "name": "Muzoka",
+        "location": [-16.090000, 26.180000],
+        "pues": [],
+        "leads": [
+          {
+            "id": "l-nka-03-01",
+            "name": "Elliot Kanyama",
+            "category": "food_processing",
+            "technology": "3hp Single Phase Hammer Mill",
+            "estimated_load_kw": 3.0,
+            "contact_number": "974289779",
+            "location": [-16.091500, 26.181200]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "roadshow": "Chidiwa",
+    "cluster": {
+      "id": "c-chidiwa",
+      "name": "Chidiwa Roadshow",
+      "center": [
+        -14.173302,
+        31.680756
+      ],
+      "boundary": [
+        [-14.083302, 31.680756],
+        [-14.109702, 31.746556],
+        [-14.173302, 31.773756],
+        [-14.236902, 31.746556],
+        [-14.263302, 31.680756],
+        [-14.236902, 31.614956],
+        [-14.173302, 31.587756],
+        [-14.109702, 31.614956]
+      ],
+      "summary": {
+        "total_existing_pues": 2,
+        "total_generated_leads": 42,
+        "dominant_category": "Agriculture",
+        "coverage_km2": 314
+      }
+    },
+    "villages": [
+      {
+        "id": "v-chi-01",
+        "name": "Chidiwa",
+        "location": [
+          -14.173302,
+          31.680756
+        ],
+        "pues": [{ "id": "p-chi-01-01", "name": "Masauso Banda", "category": "refrigeration", "technology": "deep freezer", "estimated_load_kw": 0.5, "location": [-14.173332,31.680756] },
+                { "id": "p-chi-01-02", "name": "Penius Phiri", "category": "food_processing", "technology": "Hammer mill and dehuller", "estimated_load_kw": 12.0, "location": [-14.173323,31.680756] }
+              ],
+        "leads": [
+          { "id": "l-chi-01-01", "name": "Moses Banda", "category": "manufacturing", "technology": "sewing machine", "estimated_load_kw": 0.5, "location": [-14.1735, 31.6810] },
+          { "id": "l-chi-01-02", "name": "samson Mbewe", "category": "manufacturing", "technology": "welding", "estimated_load_kw": 5.0, "location": [-14.1728, 31.6805] },
+          { "id": "l-chi-01-03", "name": "Ando Banda", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-14.1740, 31.6795] },
+          { "id": "l-chi-01-04", "name": "Gabriel Banda", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-14.1725, 31.6815] },
+          { "id": "l-chi-01-05", "name": "Jeriphace Lungu", "category": "services", "technology": "Fridge", "estimated_load_kw": 0.8, "location": [-14.1742, 31.6820] },
+          { "id": "l-chi-01-06", "name": "Mathias sakala", "category": "manufacturing", "technology": "Planer", "estimated_load_kw": 1.2, "location": [-14.1730, 31.6800] },
+          { "id": "l-chi-01-07", "name": "Christopher phiri", "category": "community", "technology": "solar light", "estimated_load_kw": 0.1, "location": [-14.1720, 31.6812] },
+          { "id": "l-chi-01-08", "name": "Masauso zulu", "category": "food_processing", "technology": "oil expeller", "estimated_load_kw": 4.0, "location": [-14.1745, 31.6808] },
+          { "id": "l-chi-01-09", "name": "Emmanuel Banda", "category": "food_processing", "technology": "Hammer mill and dehuller", "estimated_load_kw": 7.5, "location": [-14.1738, 31.6798] },
+          { "id": "l-chi-01-10", "name": "Spider Banda", "category": "food_processing", "technology": "oil expeller", "estimated_load_kw": 4.0, "location": [-14.1722, 31.6802] },
+          { "id": "l-chi-01-11", "name": "musa Banda", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-14.1732, 31.6818] }
+        ]
+      },
+      {
+        "id": "v-chi-02",
+        "name": "Mphole",
+        "location": [
+          -14.185000,
+          31.695000
+        ],
+        "pues": [],
+        "leads": [
+          { "id": "l-chi-02-01", "name": "Grace Banda", "category": "food_processing", "technology": "Hammer mill and dehuller", "estimated_load_kw": 7.5, "location": [-14.1855, 31.6945] },
+          { "id": "l-chi-02-02", "name": "Lyfire phiri", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-14.1848, 31.6958] },
+          { "id": "l-chi-02-03", "name": "Ackson Banda", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-14.1860, 31.6952] },
+          { "id": "l-chi-02-04", "name": "Vetani phiri", "category": "services", "technology": "Barbing machine", "estimated_load_kw": 0.2, "location": [-14.1842, 31.6948] },
+          { "id": "l-chi-02-05", "name": "Whyson Banda", "category": "services", "technology": "Barbing machine", "estimated_load_kw": 0.2, "location": [-14.1858, 31.6962] },
+          { "id": "l-chi-02-06", "name": "Richard Banda", "category": "food_processing", "technology": "Hammer mill and dehuller", "estimated_load_kw": 7.5, "location": [-14.1845, 31.6955] },
+          { "id": "l-chi-02-07", "name": "Benford Banda", "category": "manufacturing", "technology": "sewing machine", "estimated_load_kw": 0.5, "location": [-14.1852, 31.6940] },
+          { "id": "l-chi-02-08", "name": "Willison phiri", "category": "services", "technology": "Barbing machine", "estimated_load_kw": 0.2, "location": [-14.1865, 31.6950] },
+          { "id": "l-chi-02-09", "name": "Peter Banda", "category": "manufacturing", "technology": "power tools", "estimated_load_kw": 2.0, "location": [-14.1840, 31.6960] },
+          { "id": "l-chi-02-10", "name": "David Mbewe", "category": "food_processing", "technology": "Freezit machine", "estimated_load_kw": 2.0, "location": [-14.1856, 31.6965] },
+          { "id": "l-chi-02-11", "name": "Maliko Banda", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-14.1862, 31.6942] },
+          { "id": "l-chi-02-12", "name": "Lazarous Banda", "category": "food_processing", "technology": "deep freezer", "estimated_load_kw": 1.5, "location": [-14.1846, 31.6950] },
+          { "id": "l-chi-02-13", "name": "John phiri", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-14.1850, 31.6968] }
+        ]
+      },
+      {
+        "id": "v-chi-03",
+        "name": "Katepela",
+        "location": [
+          -14.155000,
+          31.660000
+        ],
+        "pues": [],
+        "leads": [
+          { "id": "l-chi-03-01", "name": "Mackson Banda", "category": "services", "technology": "Barbing machine", "estimated_load_kw": 0.2, "location": [-14.1555, 31.6595] },
+          { "id": "l-chi-03-02", "name": "Juliet Banda", "category": "manufacturing", "technology": "Blower", "estimated_load_kw": 1.0, "location": [-14.1548, 31.6605] },
+          { "id": "l-chi-03-03", "name": "Tryson", "category": "food_processing", "technology": "Hammer mill and dehuller", "estimated_load_kw": 7.5, "location": [-14.1560, 31.6598] },
+          { "id": "l-chi-03-04", "name": "Lumakiyo phiri", "category": "services", "technology": "Fridge", "estimated_load_kw": 0.8, "location": [-14.1545, 31.6602] }
+        ]
+      },
+      {
+        "id": "v-chi-04",
+        "name": "Surrounding Sub-sites",
+        "location": [
+          -14.160000,
+          31.700000
+        ],
+        "pues": [],
+        "leads": [
+          { "id": "l-chi-04-01", "name": "samson Chirwa", "category": "agriculture", "technology": "Big Irrigation", "estimated_load_kw": 4.0, "location": [-14.1610, 31.6980] },
+          { "id": "l-chi-04-02", "name": "Daniel mvula", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-14.1580, 31.7050] },
+          { "id": "l-chi-04-03", "name": "Masauso Banda", "category": "food_processing", "technology": "Grinder", "estimated_load_kw": 2.0, "location": [-14.1650, 31.6900] },
+          { "id": "l-chi-04-04", "name": "Micheal Mbewe", "category": "services", "technology": "Fridge", "estimated_load_kw": 0.8, "location": [-14.1550, 31.7100] },
+          { "id": "l-chi-04-05", "name": "David phiri", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-14.1620, 31.7020] },
+          { "id": "l-chi-04-06", "name": "Luamphade RCZ", "category": "food_processing", "technology": "Aerator and deep freezer", "estimated_load_kw": 2.5, "location": [-14.1500, 31.6850] },
+          { "id": "l-chi-04-07", "name": "Peter phiri", "category": "food_processing", "technology": "peanut butter maker", "estimated_load_kw": 2.0, "location": [-14.1510, 31.6860] },
+          { "id": "l-chi-04-08", "name": "Micheal Banda", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-14.1680, 31.7150] },
+          { "id": "l-chi-04-09", "name": "Gidion Banda", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-14.1590, 31.6950] },
+          { "id": "l-chi-04-10", "name": "misheck Banda", "category": "food_processing", "technology": "Freezit machine", "estimated_load_kw": 2.0, "location": [-14.1450, 31.7080] },
+          { "id": "l-chi-04-11", "name": "Sadi Mbewe", "category": "manufacturing", "technology": "Planer", "estimated_load_kw": 1.2, "location": [-14.1605, 31.7010] },
+          { "id": "l-chi-04-12", "name": "Moses Banda", "category": "manufacturing", "technology": "Welding machine", "estimated_load_kw": 5.0, "location": [-14.1460, 31.7090] },
+          { "id": "l-chi-04-13", "name": "Fobison phiri", "category": "agriculture", "technology": "micro irrigation", "estimated_load_kw": 0.08, "location": [-14.1660, 31.6980] },
+          { "id": "l-chi-04-14", "name": "Chalesi Mbewe", "category": "manufacturing", "technology": "Wood planer", "estimated_load_kw": 1.2, "location": [-14.1615, 31.7005] }
+        ]
+      }
+    ]
+  }
+
+]
