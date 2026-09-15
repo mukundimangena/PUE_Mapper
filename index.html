@@ -42,6 +42,7 @@
   --cat-services: #f472b6;
   --cat-micro: #14b8a6;
   --cat-refrigeration: #0ea5e9;
+  --cat-transport: #fbbf24;
 
   --cluster-fill: rgba(0,229,255,0.08);
   --cluster-stroke: rgba(0,229,255,0.55);
@@ -780,7 +781,7 @@
 }
 
 
-    
+
   </style>
 </head>
 <body>
@@ -878,6 +879,7 @@
       <div class="legend-item"><div class="legend-swatch" style="background:var(--cat-services)"></div> Services</div>
       <div class="legend-item"><div class="legend-swatch" style="background:var(--cat-micro)"></div> Micro Enterprises</div>
       <div class="legend-item"><div class="legend-swatch" style="background:var(--cat-refrigeration)"></div> Refrigeration</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:var(--cat-transport)"></div> Transport</div>
     </div>
 
     <!-- Marker Types Legend -->
@@ -917,7 +919,7 @@
      ============================================================ -->
 <div id="stats-bar">
   <div class="stats-bar-item">
-    <div class="stats-bar-val" id="global-clusters">5</div>
+    <div class="stats-bar-val" id="global-clusters">—</div>
     <div class="stats-bar-label">Clusters</div>
   </div>
   <div class="stats-bar-item">
@@ -985,6 +987,7 @@ const CONFIG = {
     services:       '#f472b6',
     micro_enterprise: '#14b8a6',
     refrigeration:  '#0ea5e9',
+    transport:      '#fbbf24',
   },
 
   // Category → readable label
@@ -996,6 +999,7 @@ const CONFIG = {
     services:        'Services',
     micro_enterprise: 'Micro Enterprises',
     refrigeration:   'Refrigeration',
+    transport:       'Transport',
   },
 };
 
@@ -1356,6 +1360,7 @@ const AppState = (() => {
     // Populate global stats bar
     const totalPues  = _data.reduce((s,d) => s + d.cluster.summary.total_existing_pues, 0);
     const totalLeads = _data.reduce((s,d) => s + d.cluster.summary.total_generated_leads, 0);
+    document.getElementById('global-clusters').textContent = _data.length;
     document.getElementById('global-pues').textContent  = totalPues;
     document.getElementById('global-leads').textContent = totalLeads;
 
@@ -1379,7 +1384,7 @@ const AppState = (() => {
     _updatePanel(item);
     _updateBreadcrumb();
     _showReset();
-    
+
     // Reset legend counts for cluster view
     document.getElementById('legend-pue-count').textContent = '—';
     document.getElementById('legend-lead-count').textContent = '—';
@@ -1413,7 +1418,7 @@ const AppState = (() => {
     _hideReset();
     document.getElementById('village-indicator').style.display = 'none';
     document.getElementById('village-analytics').style.display = 'none';
-    
+
     // Reset legend counts for national view
     document.getElementById('legend-pue-count').textContent = '—';
     document.getElementById('legend-lead-count').textContent = '—';
@@ -1519,7 +1524,7 @@ const DataLoader = (() => {
         console.log('Loading data from window.PUE_DATA (data.js)');
         return window.PUE_DATA;
       }
-      
+
       // Fallback: fetch data.json (for local development)
       console.log('Loading data from data.json (fallback)');
       const res  = await fetch('./data.json');
