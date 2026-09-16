@@ -2270,9 +2270,9 @@
     ]
   },
   {
-    "roadshow": "Nkandonzavu",
+    "roadshow": "Nkandanzovu",
     "cluster": {
-      "id": "nkandonzavu",
+      "id": "Nkandanzovu",
       "name": "Nkandonzabvu Roadshow",
       "center": [
         -16.106557,
@@ -2322,7 +2322,7 @@
     "villages": [
       {
         "id": "v-nka-01",
-        "name": "Nkandonzavu",
+        "name": "Nkandanzovu",
         "location": [
           -16.106557,
           26.197547
@@ -4349,7 +4349,7 @@
     "villages": [
       {
         "id": "v-chw-01",
-        "name": "Cimwala",
+        "name": "Chimwala",
         "location": [
           -14.328278,
           32.144979
